@@ -5,8 +5,81 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL Shortener</title>
+    <style>
+    *,
+    *::before,
+    *::after {
+    box-sizing: border-box;
+    }
+
+    body,
+    #content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+    min-height: 100vh;
+    line-height: 2.5;
+    }
+    
+    .header {
+    max-width: 800px;
+    width: 100%;
+    background: #537188;
+    }
+    input,
+    button {
+    font-family: inherit;
+    line-height: inherit;
+    color: inherit;
+    border: 0;
+    padding: 1rem;
+    }
+    input {
+        box-sizing: border-box;
+        width: 100%;
+        background: black;
+        color: white;
+    }
+    .button {
+        margin-left: 45%;
+    }
+    button {
+    background-color: #000;
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    margin: 5px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    }
+    button:hover {
+        color: #000;
+        background: #fff;
+    }
+    #content {
+        background: #000;
+    }
+    </style>
 </head>
 <body>
-    <h1>Testing.</h1>
+    <div class="header">
+        <h1 style="text-align: center; color: #fff;">URL Shortener</h1>
+        <form id="form">
+          {% csrf_token %}
+        <input type="text" name="url" id="url" placeholder="Paste your URL here.">
+        <div class="button">
+          <button type="submit" id="short">Shorten</button>
+        </div>
+        </form>
+        <div id="content"><h2></h2></d>
+      </div>    
 </body>
 </html>
