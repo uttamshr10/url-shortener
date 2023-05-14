@@ -80,6 +80,22 @@
         </div>
         </form>
         <div id="content"><h2></h2></d>
-      </div>    
+      </div>
+      <script>
+        $(document).on('submit','#form', function(value){
+            value.preventDefault(); // don't reload the page on submission of form.
+            $.ajax({
+                type: 'POST',
+                url: '/generate',
+                data: {
+                    url: $('#url').val(),
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                },
+                success: function(){
+                    
+                }
+            });
+        });
+      </script>    
 </body>
 </html>
