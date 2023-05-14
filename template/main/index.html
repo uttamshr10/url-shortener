@@ -74,28 +74,29 @@
         <h1 style="text-align: center; color: #fff;">URL Shortener</h1>
         <form id="form">
           {% csrf_token %}
-        <input type="text" name="url" id="url" placeholder="Paste your URL here.">
+        <input type="text" name="link" id="link" placeholder="Paste your URL here.">
         <div class="button">
           <button type="submit" id="short">Shorten</button>
         </div>
         </form>
         <div id="content"><h2></h2></d>
       </div>
-      <script>
-        $(document).on('submit','#form', function(value){
-            value.preventDefault(); // don't reload the page on submission of form.
+      <script type="text/javascript">
+        $(document).on('submit','#form', function(e){
+            e.preventDefault(); // don't reload the page on submission of form.
             $.ajax({
-                type: 'POST',
-                url: '/generate',
-                data: {
-                    url: $('#url').val(),
-                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                type:'POST',
+                url:'/generate',
+                data:{
+                    link:$('#link').val(),
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
                 },
-                success: function(){
-                    
+                success: function(data){
+                    $('h2').html("www.uttam.shr/"+data)
                 }
             });
         });
-      </script>    
+      </script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 </body>
 </html>
