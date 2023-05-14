@@ -88,17 +88,17 @@
         </div>
       </div>
       <script type="text/javascript">
-        $(document).on('submit','#form', function(e){
+        $(document).on('submit','#form', function(e){   // event handler function that is executed when form is submitted.
             e.preventDefault(); // don't reload the page on submission of form.
             $.ajax({
-                type:'POST',
-                url:'/generate',
-                data:{
+                type:'POST',    // specifies request should be POST
+                url:'/generate',    // sets the URL to which request is sent.
+                data:{  // defines the data to be sent with the request
                     link:$('#link').val(),
                     csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
                 },
-                success: function(data){
-                    $('h2').html("localhost:8000/"+data)
+                success: function(data){  // specifies a callback function to be executed when the AJAX request is successful.
+                    $('h2').html("localhost:8000/"+data)    // updates the content of the <h2> element
                 }
             });
         });
