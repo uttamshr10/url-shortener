@@ -18,4 +18,4 @@ def generate(request):
 
 def show(request, pk):
     details = models.Link.objects.get(uuid=pk)
-    return redirect('https://+details.link')
+    return redirect('https://'+details.link)
