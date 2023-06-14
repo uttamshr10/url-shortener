@@ -1,5 +1,5 @@
 # URL Shortener
-This URL shortener application is built using Django, which allows you to create shortened URLs for long links, making them easier to manage and share which will redirect you to orginal long link.
+This URL shortener application is built using Django, which allows you to create shortened URLs for long links, making them easier to manage and share which will redirect you to original long link.
 ## Prerequisites
 - Text Editor (VS Code)
 - Git
